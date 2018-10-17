@@ -22,12 +22,12 @@
 		<script type="text/javascript" src="https://cdn.knightspear.com/lib/underscore/underscore-min.js"></script>
 		<script type="text/javascript" src="https://cdn.knightspear.com/lib/cookies.min.js"></script>
 
-    
+
 		<!-- ANGULAR SCRIPTS/MODULES -->
 		<script type="text/javascript" src="/lib/angular/angular.min.js"></script>
 		<script type="text/javascript" src="/lib/angular-resource-master/angular-resource.min.js"></script>
 		<script type="text/javascript" src="/lib/angular-ui-router/angular-ui-router.min.js"></script>
-		<script type="text/javascript" src="/lib/angular-sanitize/angular-sanitize.min.js"></script>		
+		<script type="text/javascript" src="/lib/angular-sanitize/angular-sanitize.min.js"></script>
 		<script type="text/javascript" src="/lib/angular-animate/angular-animate.min.js"></script>
 		<script type="text/javascript" src="/lib/angular-aria/angular-aria.min.js"></script>
 
@@ -71,8 +71,11 @@
 		<script defer type="text/javascript" src="/navigation/controllers/navigation.client.controller.js"></script>
 		<script defer type="text/javascript" src="/navigation/controllers/navigation-side.client.controller.js"></script>
 
+		<!-- NEW -->
+		<script defer type="text/javascript" src="/new/controllers/criteria.client.controller.js"></script>
+
 		<script defer type="text/javascript" src="/application.js"></script>
-		
+
 	</head>
 
 	<body ng-controller="MainController as main" ng-cloak>
@@ -82,7 +85,7 @@
 				<div class="col-lg-3 col-sm-4" ng-include="'/main/views/main.navbar-side.client.view.html'"></div>
 				<ui-view class="col-lg-9 col-sm-8"></ui-view>
 			</div>
-		</div>	
+		</div>
 
 	</body>
 

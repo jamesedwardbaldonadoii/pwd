@@ -20,7 +20,7 @@ var config = require("./config")
     , bodyParser = require("body-parser")
     , flash = require("connect-flash")
     , methodOverride = require("method-override")
-    
+
     // listener modules
     , http = require("http")
     , https = require("https")
@@ -92,12 +92,12 @@ module.exports = function() {
     app.use(express.static("./public"));
 
     io.use(passportSocketIo.authorize({
-        cookieParser: cookieParser,       // the same middleware you registrer in express 
-        key: "express.sid",       // the name of the cookie where express/connect stores its session_id 
-        secret: config.sessionSecret,    // the session_secret to parse the cookie 
+        cookieParser: cookieParser,       // the same middleware you registrer in express
+        key: "express.sid",       // the name of the cookie where express/connect stores its session_id
+        secret: config.sessionSecret,    // the session_secret to parse the cookie
         store: store,       // we NEED to use a sessionstore. no memorystore please
-        success: tpmsSocketio.onAuthorizeSuccess,  // *optional* callback on success - read more below 
-        fail: tpmsSocketio.onAuthorizeFail,     // *optional* callback on fail/error - read more below 
+        success: tpmsSocketio.onAuthorizeSuccess,  // *optional* callback on success - read more below
+        fail: tpmsSocketio.onAuthorizeFail,     // *optional* callback on fail/error - read more below
     }));
 
 
@@ -115,6 +115,7 @@ module.exports = function() {
 
     require("../app/main/routes/main.server.routes.js")(app, io);
     require("../app/user/routes/user.server.routes.js")(app, io);
+    require("../app/criteria/routes/criteria.server.routes.js")(app, io);
 
     app.use(function(req, res){
         res.redirect("/");

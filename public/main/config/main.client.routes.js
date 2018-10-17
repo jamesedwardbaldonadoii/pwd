@@ -15,7 +15,9 @@
 		const new_criteria = {
 			name: 'new_criteria',
 			url: '/new/criteria',
-			templateUrl: 'new/views/new-criteria.client.view.html'
+			templateUrl: 'new/views/new-criteria.client.view.html',
+			controller: 'CriteriaController',
+			controllerAs: 'vm'
 		};
 
 		const new_place = {

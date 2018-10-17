@@ -7,6 +7,7 @@ module.exports = function() {
 
     /*Models*/
     require('../app/user/model/user.server.model.js');
-    
+    require('../app/criteria/model/criteria.server.model.js');
+
     return db;
 };
