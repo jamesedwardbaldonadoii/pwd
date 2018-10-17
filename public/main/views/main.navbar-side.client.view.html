@@ -1,0 +1,14 @@
+<div class="profile-sidebar" ng-controller="NavigationSideController as sidenav">
+	<!-- SIDEBAR MENU -->
+	<div class="profile-usermenu">
+		<ul class="nav">
+			<li ng-repeat="nav in sidenav.navigations">
+				<a ui-sref="{{nav.path}}">
+					<i ng-class="nav.icon"></i>
+					<span ng-bind="nav.display"></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<!-- END MENU -->
+</div>

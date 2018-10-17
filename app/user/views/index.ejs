@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <form action="/api/signin" method="post">
+        <fieldset>
+            <legend>Login:</legend>
+            <div>Email: <input type="email" name="username"></div>
+            <div>Password: <input type="password" name="password"></div>
+            <button type="submit">Login</button>
+        </fieldset>
+    </form>
+    <form action="/api/signup" method="post">
+        <fieldset>
+            <legend>Signup:</legend>
+            <div>Email: <input type="email" name="email"></div>
+            <div>Firstname: <input type="text" name="firstname"></div>
+            <div>Lastname: <input type="text" name="lastname"></div>
+            <div>Password: <input type="password" name="password"></div>
+            <button type="submit">Signup</button>
+        </fieldset>
+    </form>
+</body>
+</html>
