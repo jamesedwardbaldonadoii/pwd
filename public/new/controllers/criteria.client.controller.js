@@ -38,6 +38,14 @@
 				vm.newData.options.push({text: ''});
 			}
 		};
+
+		vm.init = function () {
+			mainSocket.emit('criteria.find', {}, function (res) {
+				vm.list = res;
+			});
+		};
+
+		vm.init();
 	}
 
 })();
