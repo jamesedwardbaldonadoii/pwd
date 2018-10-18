@@ -1,9 +1,9 @@
-const criterimain = require('../controllers/criteria-main.server.controller');
+const placemain = require('../controllers/place-main.server.controller');
 
 exports.create = (socket, req, callback, next) => {
 	let data = req;
 	/*Stuff*/
-	criterimain.create(data, (err, res) => {
+	placemain.create(data, (err, res) => {
 		if (err) {
 			return callback(err);
 		}
@@ -16,7 +16,7 @@ exports.find = {
 	one: (socket, req, callback, next) => {
 		let data = req;
 		/*Stuff*/
-		criterimain.find.one(data, (err, res) => {
+		placemain.find.one(data, (err, res) => {
 			if (err) {
 				return callback(err);
 			}
@@ -26,7 +26,7 @@ exports.find = {
 		let data = req;
 
 		/*Stuff*/
-		criterimain.find.all(data, (err, res) => {
+		placemain.find.all(data, (err, res) => {
 			if (err) {
 				return callback(err);
 			}
@@ -39,11 +39,11 @@ exports.find = {
 exports.update = (socket, req, callback, next) => {
 	let data = req;
 	/*Stuff*/
-	criterimain.update(data, (err, res) => {
+	placemain.update(data, (err, res) => {
 		if (err) {
 			return callback(err);
 		}
-		
+
 		callback(false, res);
 	});
 };
@@ -51,7 +51,7 @@ exports.update = (socket, req, callback, next) => {
 exports.remove = (socket, req, callback, next) => {
 	let data = req;
 	/*Stuff*/
-	criterimain.remove(data, (err, res) => {
+	placemain.remove(data, (err, res) => {
 		if (err) {
 			return callback(err);
 		}

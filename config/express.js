@@ -116,6 +116,8 @@ module.exports = function() {
     require("../app/main/routes/main.server.routes.js")(app, io);
     require("../app/user/routes/user.server.routes.js")(app, io);
     require("../app/criteria/routes/criteria.server.routes.js")(app, io);
+    require("../app/place/routes/place.server.routes.js")(app, io);
+    require("../app/forms/routes/forms.server.routes.js")(app, io);
 
     app.use(function(req, res){
         res.redirect("/");

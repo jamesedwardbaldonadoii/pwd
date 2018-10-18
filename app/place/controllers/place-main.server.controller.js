@@ -1,10 +1,10 @@
 const mongoose = require('mongoose'),
- 	   Criteria = mongoose.model('Criteria');
+ 	  Place = mongoose.model('Place');
 
 exports.create = (data, callback) => {
-	let criteria = new Criteria(data);
+	let place = new Place(data);
 
-	criteria.save((err, res) => {
+	place.save((err, res) => {
 		if (err) {
 			return callback(err);
 		}
@@ -15,7 +15,7 @@ exports.create = (data, callback) => {
 
 exports.find = {
 	one: (req, callback) => {
-		Criteria
+		Place
 			.findOne(req.query)
 			.select(req.select)
 			.exec((err, res) => {
@@ -26,7 +26,7 @@ exports.find = {
 			});
 	},
 	all: (req, callback) => {
-		Criteria
+		Place
 			.find({deleted_date: null})
 			.sort(req.sort)
 			.limit(req.limit)
@@ -42,7 +42,7 @@ exports.find = {
 };
 
 exports.update = (req, callback) => {
-	Criteria
+	Place
 		.findOneAndUpdate(req.query, req.data, { new: true })
 		.select(req.select)
 		// .populate(/*field model*/, /*fields*/)
@@ -55,7 +55,7 @@ exports.update = (req, callback) => {
 };
 
 exports.remove = (req, callback) => {
-	Criteria
+	Place
 		.findOneAndUpdate(req, {
 			deleted_date: new Date()
 		}, { new: true })

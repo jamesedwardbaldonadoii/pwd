@@ -1,21 +1,17 @@
 const mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-let CriteriaSchema = new Schema({
+let PlaceSchema = new Schema({
+    name: {
+        type: String
+    },
     user: {
         type: Schema.ObjectId,
         ref: 'User'
     },
-    question: {
-        type: String,
-    },
-    type: {
-        type: String,
-        default: 'input',
-        enum: ['input', 'textarea', 'radio', 'checkbox', 'select']
-    },
-    options: [{
-        type: String
+    review: [{
+        type: Schema.ObjectId,
+        ref: 'Review'
     }],
     created_date: {
         type: Date,
@@ -29,9 +25,9 @@ let CriteriaSchema = new Schema({
     }
 });
 
-CriteriaSchema.set('toJSON', {
+PlaceSchema.set('toJSON', {
     getters: true,
     virtuals: true
 });
 
-mongoose.model('Criteria', CriteriaSchema);
+mongoose.model('Place', PlaceSchema);

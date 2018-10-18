@@ -37,6 +37,24 @@
 		</form>
 	</div>
 	<div class="col-lg-8 col-md-8">
-		List Goes Here
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<td>Question</td>
+					<td>Type</td>
+					<td></td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in vm.list track by $index">
+					<td ng-bind="item.question"></td>
+					<td ng-bind="item.type"></td>
+					<td>
+						<button class="btn btn-sm btn-success"><i class="fa fa-pencil"></i> Edit</button>
+						<button class="btn btn-sm btn-danger" ng-click="vm.removeCriteria(item, $index)"><i class="fa fa-trash"></i> Remove</button>
+					</td>
+				</tr>
+			</tbody>	
+		</table>
 	</div>
 </div>

@@ -23,17 +23,28 @@
 		const new_place = {
 			name: 'new_place',
 			url: '/new/place',
-			templateUrl: 'new/views/new-place.client.view.html'
+			templateUrl: 'new/views/new-place.client.view.html',
+			controller: 'PlaceController',
+			controllerAs: 'vm'
+		};
+
+		const new_forms = {
+			name: 'new_forms',
+			url: '/new/forms',
+			templateUrl: 'new/views/new-forms.client.view.html',
+			controller: 'FormsController',
+			controllerAs: 'vm'
 		};
 
 		const new_review = {
 			name: 'new_review',
 			url: '/new/review',
-			templateUrl: 'new/views/new-review.client.view.html'
+			templateUrl: 'new/views/new-review.client.view.html',
 		};
 
 		$stateProvider.state(home);
 		$stateProvider.state(new_criteria);
+		$stateProvider.state(new_forms);
 		$stateProvider.state(new_review);
 		$stateProvider.state(new_place);
 	}

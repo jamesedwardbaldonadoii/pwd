@@ -8,6 +8,8 @@ module.exports = function() {
     /*Models*/
     require('../app/user/model/user.server.model.js');
     require('../app/criteria/model/criteria.server.model.js');
+    require('../app/place/model/place.server.model.js');
+    require('../app/forms/model/forms.server.model.js');
 
     return db;
 };

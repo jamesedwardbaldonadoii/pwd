@@ -35,8 +35,8 @@
 				icon: 'fa fa-plus'				
 			},
 			{
-				display: 'New Review', 
-				path: 'new_review',
+				display: 'New Forms', 
+				path: 'new_forms',
 				icon: 'fa fa-plus'				
 			}
 		];

@@ -1,10 +1,10 @@
 const mongoose = require('mongoose'),
- 	   Criteria = mongoose.model('Criteria');
+ 	  Forms = mongoose.model('Forms');
 
 exports.create = (data, callback) => {
-	let criteria = new Criteria(data);
+	let forms = new Forms(data);
 
-	criteria.save((err, res) => {
+	forms.save((err, res) => {
 		if (err) {
 			return callback(err);
 		}
@@ -15,7 +15,7 @@ exports.create = (data, callback) => {
 
 exports.find = {
 	one: (req, callback) => {
-		Criteria
+		Forms
 			.findOne(req.query)
 			.select(req.select)
 			.exec((err, res) => {
@@ -26,12 +26,13 @@ exports.find = {
 			});
 	},
 	all: (req, callback) => {
-		Criteria
+		Forms
 			.find({deleted_date: null})
 			.sort(req.sort)
 			.limit(req.limit)
 			.skip(req.skip)
 			.select(req.select)
+			.populate('criterias')
 			.exec(function(err, res){
 				if(err)
 					callback(err);
@@ -42,7 +43,7 @@ exports.find = {
 };
 
 exports.update = (req, callback) => {
-	Criteria
+	Forms
 		.findOneAndUpdate(req.query, req.data, { new: true })
 		.select(req.select)
 		// .populate(/*field model*/, /*fields*/)
@@ -55,7 +56,7 @@ exports.update = (req, callback) => {
 };
 
 exports.remove = (req, callback) => {
-	Criteria
+	Forms
 		.findOneAndUpdate(req, {
 			deleted_date: new Date()
 		}, { new: true })

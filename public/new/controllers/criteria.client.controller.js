@@ -20,7 +20,12 @@
 			}
 
 			mainSocket.emit('criteria.create', data, function (err, res) {
+				if (err) {
+					return;
+				}
+
 				vm.newData = {};
+				vm.list.push(res);
 			});
 		};
 
@@ -37,6 +42,16 @@
 			if (lastOpt && lastOpt.text !== '') {
 				vm.newData.options.push({text: ''});
 			}
+		};
+
+		vm.removeCriteria = function (item, $index) {
+			mainSocket.emit('criteria.remove', {_id: item._id}, function (err) {
+				if (err) {
+					return
+				}
+
+				vm.list.splice($index, 1);
+			});
 		};
 
 		vm.init = function () {
