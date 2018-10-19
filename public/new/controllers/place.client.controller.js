@@ -84,6 +84,30 @@
 			});
 		};
 
+		vm.viewReviews = function (placeId) {
+			var modalInstance = $uibModal.open({
+				animation: true,
+				ariaLabelledBy: 'modal-title',
+				ariaDescribedBy: 'modal-body',
+				templateUrl: '/new/modal/view-reviews.modal.client.view.html',
+				size: 'lg',
+      			controllerAs: '$ctrl',
+				controller: ['$uibModalInstance', function($uibModalInstance) {
+					var self = this;
+					self.answers = null;
+
+					mainSocket.emit('review.find', {query: {place: placeId}}, function (res) {
+						_.map(res, function(item) {
+							console.log(Object.keys(item.answer));
+						});
+						self.answers = res;
+					});
+				}]
+			});
+
+			modalInstance.result.then(angular.noop, angular.noop);
+		};
+
 		vm.init = function () {
 			mainSocket.emit('place.find', {}, function (res) {
 				vm.list = res;

@@ -1,10 +1,10 @@
 const mongoose = require('mongoose'),
- 	  Place = mongoose.model('Place');
+ 	   Review = mongoose.model('Review');
 
 exports.create = (data, callback) => {
-	let place = new Place(data);
+	let review = new Review(data);
 
-	place.save((err, res) => {
+	review.save((err, res) => {
 		if (err) {
 			return callback(err);
 		}
@@ -15,7 +15,7 @@ exports.create = (data, callback) => {
 
 exports.find = {
 	one: (req, callback) => {
-		Place
+		Review
 			.findOne(req.query)
 			.select(req.select)
 			.exec((err, res) => {
@@ -26,18 +26,15 @@ exports.find = {
 			});
 	},
 	all: (req, callback) => {
-		Place
-			.find({deleted_date: null})
+		req.query.deleted_date = null;
+		console.log(req.query);
+		Review
+			.find(req.query)
 			.sort(req.sort)
 			.limit(req.limit)
 			.skip(req.skip)
-			.select(req.select)		
-			.populate({ 
-				path: 'forms',
-				populate: {
-					path: 'criterias'
-				} 
-			})
+			.select(req.select)
+			.populate('user')
 			.exec(function(err, res){
 				if(err)
 					callback(err);
@@ -48,7 +45,7 @@ exports.find = {
 };
 
 exports.update = (req, callback) => {
-	Place
+	Review
 		.findOneAndUpdate(req.query, req.data, { new: true })
 		.select(req.select)
 		// .populate(/*field model*/, /*fields*/)
@@ -61,7 +58,7 @@ exports.update = (req, callback) => {
 };
 
 exports.remove = (req, callback) => {
-	Place
+	Review
 		.findOneAndUpdate(req, {
 			deleted_date: new Date()
 		}, { new: true })

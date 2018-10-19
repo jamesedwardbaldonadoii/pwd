@@ -8,10 +8,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="item in vm.places track by $index">
+                <tr ng-if="item.forms" ng-repeat="item in vm.places track by $index">
                     <td ng-bind="item.name"></td>
                     <td>
-                        <button class="btn btn-sm btn-primary" ng-click="vm.preview = item">
+                        <button class="btn btn-sm btn-primary" ng-click="vm.preview = item; vm.done = false;">
                             <i class="fa fa-eye"></i> Make a review
                         </button>
                     </td>
@@ -20,24 +20,32 @@
         </table>
     </div>
     <div class="col-lg-8 col-md-8">
-        <div class="form-group">
-            <label ng-bind="vm.preview.name"></label>
+        <div ng-if="vm.done">
+            <span><i class="fa fa-check"></i> Submitted!</span>
         </div>
-        <div class="form-group" ng-repeat="item in vm.preview.forms.criterias track by $index">
-            <label ng-bind="item.question"></label>
-
-            <input ng-if="item.type == 'input'" class="form-control" type="text" disabled/>
-            <textarea ng-if="item.type == 'textarea'" class="form-control" type="text" disabled></textarea>
-
-            <select class="form-control" ng-if="item.type == 'select'" >
-                <option ng-repeat="option in item.options track by $index" value="{{option}}" ng-bind="option"></option>
-            </select>
-
-            <div ng-class="vm.newData.type" ng-if="item.options && item.type !== 'select'" ng-repeat="option in item.options track by $index">
-                <input ng-if="item.type == 'radio'" type="radio" name="optradio" disabled>
-                <input ng-if="item.type == 'checkbox'" type="checkbox" name="optradio" disabled>
-                {{option}}
+        <form class="form-horizontal" role="form" ng-submit="vm.formSubmit(vm.preview._id)" ng-if="vm.preview">
+            <div class="form-group">
+                <label ng-bind="vm.preview.name"></label>
             </div>
-        </div>
+            <div class="form-group" ng-repeat="item in vm.preview.forms.criterias track by $index">
+                <label ng-bind="item.question"></label>
+
+                <input ng-if="item.type == 'input'" class="form-control" type="text" ng-model="vm.answer[item.question]"/>
+                <textarea ng-if="item.type == 'textarea'" class="form-control" type="text" ng-model="vm.answer[item.question]"></textarea>
+
+                <select class="form-control" ng-if="item.type == 'select'" ng-model="vm.answer[item.question]">
+                    <option ng-repeat="option in item.options track by $index" value="{{option}}" ng-bind="option"></option>
+                </select>
+
+                <div ng-class="vm.newData.type" ng-if="item.options && item.type !== 'select'" ng-repeat="option in item.options track by $index">
+                    <input ng-if="item.type == 'radio'" type="radio" value="{{option}}" name="optradio" ng-model="vm.answer[item.question]">
+                    <input ng-if="item.type == 'checkbox'" type="checkbox" name="optradio" ng-init="vm.answer[item.question][option] = false;" ng-model="vm.answer[item.question][option]">
+                    {{option}}
+                </div>
+            </div>
+            <button class="btn btn-sm btn-primary">
+                <span class="fa fa-floppy-o" aria-hidden="true"></span> Submit Review
+            </button>
+        </form>
     </div>
 </div>

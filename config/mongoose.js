@@ -10,6 +10,7 @@ module.exports = function() {
     require('../app/criteria/model/criteria.server.model.js');
     require('../app/place/model/place.server.model.js');
     require('../app/forms/model/forms.server.model.js');
+    require('../app/review/model/review.server.model.js');
 
     return db;
 };
