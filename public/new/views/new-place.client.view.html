@@ -17,19 +17,21 @@
 			<thead>
 				<tr>
 					<td>Place</td>
+					<td>Form</td>
 					<td></td>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="item in vm.list track by $index">
 					<td ng-bind="item.name"></td>
+					<td ng-bind="item.forms.name"></td>
 					<td>
 						<button class="btn btn-sm btn-info"><i class="fa fa-comment"></i> Reviews</button>
-						<button class="btn btn-sm btn-primary"><i class="fa fa-clone"></i> Make a Review</button>
+						<button class="btn btn-sm btn-success" ng-click="vm.setPlaceForms(item)"><i class="fa fa-clone"></i> Set Forms</button>
 						<button class="btn btn-sm btn-danger" ng-click="vm.removePlace(item, $index)"><i class="fa fa-trash"></i> Delete</button>
 					</td>
 				</tr>
-			</tbody>	
+			</tbody>
 		</table>
 	</div>
 </div>

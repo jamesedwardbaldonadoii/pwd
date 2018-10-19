@@ -7,6 +7,7 @@ module.exports = function(app, io) {
         socket.route("place.create", place.create);
         socket.route("place.find", place.find.all);
         socket.route("place.findOne", place.find.one);
+        socket.route("place.update", place.update);
         socket.route("place.remove", place.remove);
     });
 };

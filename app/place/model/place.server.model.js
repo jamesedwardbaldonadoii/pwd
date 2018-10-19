@@ -9,6 +9,10 @@ let PlaceSchema = new Schema({
         type: Schema.ObjectId,
         ref: 'User'
     },
+    forms: {
+        type: Schema.ObjectId,
+        ref: 'Forms'
+    },
     review: [{
         type: Schema.ObjectId,
         ref: 'Review'

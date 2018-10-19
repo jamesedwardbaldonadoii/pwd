@@ -34,6 +34,56 @@
 			});
 		};
 
+		vm.setPlaceForms = function (place) {
+			var data = {
+				query: {
+					_id: place._id
+				},
+				data: {}
+			};
+
+			var modalInstance = $uibModal.open({
+				animation: true,
+				ariaLabelledBy: 'modal-title',
+				ariaDescribedBy: 'modal-body',
+				templateUrl: '/new/modal/set-forms.modal.client.view.html',
+				size: 'md',
+      			controllerAs: '$ctrl',
+				controller: ['$uibModalInstance', function($uibModalInstance) {
+					var self = this;
+					self.forms = [];
+
+					mainSocket.emit('forms.find', {}, function (res) {
+						self.forms = res;
+					});
+
+					self.ok = function (form) {
+						if (!form) {
+							return;
+						}
+
+						$uibModalInstance.close(form);
+					};
+				}]
+			});
+
+			modalInstance.result.then(function (form) {
+				data.data = {
+					forms: form._id
+				};
+
+				mainSocket.emit('place.update', data, function (err) {
+					if (err) {
+						return;
+					}
+
+					place.forms = form;
+				});
+			}, function () {
+
+			});
+		};
+
 		vm.init = function () {
 			mainSocket.emit('place.find', {}, function (res) {
 				vm.list = res;

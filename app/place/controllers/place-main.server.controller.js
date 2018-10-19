@@ -32,6 +32,7 @@ exports.find = {
 			.limit(req.limit)
 			.skip(req.skip)
 			.select(req.select)
+			.populate('forms')
 			.exec(function(err, res){
 				if(err)
 					callback(err);
