@@ -40,6 +40,8 @@
 			name: 'new_review',
 			url: '/new/review',
 			templateUrl: 'new/views/new-review.client.view.html',
+			controller: 'ReviewsController',
+			controllerAs: 'vm'
 		};
 
 		$stateProvider.state(home);

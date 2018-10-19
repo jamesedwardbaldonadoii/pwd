@@ -10,34 +10,39 @@
 		var vm = this;
 		vm.navigations = [
 			{
-				display: 'Dashboard', 
+				display: 'Dashboard',
 				path: 'home',
 				icon: 'fa fa-home'
-			}, 
+			},
 			{
-				display: 'Users', 
+				display: 'Users',
 				path: 'users',
 				icon: 'fa fa-user'
-			}, 
+			},
 			{
-				display: 'Reviews', 
+				display: 'Reviews',
 				path: 'users',
 				icon: 'fa fa-check'
 			},
 			{
-				display: 'New Criteria', 
+				display: 'New Criteria',
 				path: 'new_criteria',
-				icon: 'fa fa-plus'				
+				icon: 'fa fa-plus'
 			},
 			{
-				display: 'New Place', 
+				display: 'New Place',
 				path: 'new_place',
-				icon: 'fa fa-plus'				
+				icon: 'fa fa-plus'
 			},
 			{
-				display: 'New Forms', 
+				display: 'New Forms',
 				path: 'new_forms',
-				icon: 'fa fa-plus'				
+				icon: 'fa fa-plus'
+			},
+			{
+				display: 'New Review',
+				path: 'new_review',
+				icon: 'fa fa-plus'
 			}
 		];
 	}
