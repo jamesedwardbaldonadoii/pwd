@@ -1,3 +1,16 @@
-<div class="col-lg-3">
-	Home Page
+<div class="col-lg-12">
+	<table class="table table-striped">
+		<thead>
+			<td>User</td>
+			<td>Rate</td>
+			<td>Remarks</td>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in main.answers track by $index" ng-if="item.ratings">
+				<td ng-bind="item.user.fullName"></td>
+				<td ng-bind="item.score"></td>
+				<td ng-bind="item.result"></td>
+			</tr>
+		</tbody>
+	</table>
 </div>
