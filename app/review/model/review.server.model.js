@@ -9,6 +9,10 @@ let ReviewSchema = new Schema({
     answer: {
         type: Object,
     },
+    ratings: {
+        type: Boolean,
+        default: false
+    },
     place: {
         type: Schema.ObjectId,
         ref: 'Place'

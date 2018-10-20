@@ -36,7 +36,7 @@ var config = require("./config")
 *   CONSTANTS
 */
 var APP_HOST = process.env.OPENSHIFT_NODEJS_IP || "localhost"
-    , APP_PORT = process.env.PORT || 3000;
+    , APP_PORT = process.env.PORT || 4000;
 
 /**
 * DEFINE APP

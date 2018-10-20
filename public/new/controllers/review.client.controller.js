@@ -18,11 +18,12 @@
 			});
 		};
 
-		vm.formSubmit = function (placeId) {
+		vm.formSubmit = function (placeId, isRatings) {
 			var data = {
 				answer: vm.answer,
 				user: vm.auth._id,
-				place: placeId
+				place: placeId,
+				ratings: isRatings
 			};
 
 			mainSocket.emit('review.create', data, function (err, res) {

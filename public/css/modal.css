@@ -1,0 +1,173 @@
+/* Full-width input fields */
+.modal-content input[type=text], .modal-content input[type=password], .modal-content input[type=email], .modal-content textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+	font-size: 14px;
+    border-radius: 50px;
+    transition: all 0.4s;
+	box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.16);
+  resize: none;
+}
+
+.modal-content textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0 3px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+	font-size: 14px;
+    border-radius: 20px;
+    transition: all 0.4s;
+	box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.16);
+  resize: none;
+}
+
+.modal-content label input[type=radio] {
+   vertical-align: middle;
+   margin: 8px 5px 8px 0;
+   width: 15px;
+   height: 15px;
+ }
+
+ .modal-content label {
+   margin-right: 20px;
+ }
+
+.formgrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 5px;
+}
+
+input[type=text].fnames {
+    border-radius: 50px 10px 10px 50px;
+}
+
+input[type=text].lnames {
+    border-radius: 10px 50px 50px 10px;
+}
+
+.modal-content input[type=text]:focus, .modal-content input[type=password]:focus, .modal-content input[type=email]:focus, .modal-content textarea:focus {
+    border-radius: 5px;
+	box-shadow: 0px 0px 6px #6AB9E6;
+    outline: none;
+    border: 1px solid #6AB9E6;
+}
+
+/* Set a style for all buttons */
+button.insidemodal {
+    background-color: #28cc84;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0 0 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+	font-size:16px;
+    transition: all 0.2s;
+    border-radius: 5px;
+	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.16);
+}
+
+button.insidemodal:hover {
+    opacity: 0.8;
+}
+
+.switcher {
+  margin-top: 20px;
+}
+
+.switcher a {
+  cursor: pointer;
+  color: blue;
+}
+
+.switcher a:hover {
+  text-decoration: underline;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    position: relative;
+}
+.avatar {
+    width: 120px;
+	height:120px;
+    border-radius: 50%;
+}
+
+/* The Modal (background) */
+.modal1, .modal2 {
+	display:none;
+    position: fixed;
+    z-index: 1999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 4% auto 15% auto;
+    border: 1px solid #888;
+    width: 400px;
+	  padding: 20px 20px;
+    border-radius: 20px;
+    transition: all .2s;
+}
+
+.modal-content h1 {
+  text-align: center;
+  margin: 5px;
+}
+
+.modal-content h5 {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 3px;
+    top: -10px;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+.close:hover,.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    animation: zoom ease 0.6s
+}
+
+@keyframes zoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+.loginBtn {
+  cursor: pointer;
+}
+
+.forgotpassbtn {
+  text-decoration:none;
+  float:right;
+  margin:20px 0 0 0;
+}
+
+.forgotpassbtn:hover {
+  text-decoration:underline;
+}

@@ -19,6 +19,13 @@
 				data.options = _.map(data.options, 'text');
 			}
 
+
+			var lastOpt = data.options[data.options.length - 1];
+
+			if (lastOpt === '' || !lastOpt) {
+				data.options.splice(data.options.length - 1, 1);
+			}
+
 			mainSocket.emit('criteria.create', data, function (err, res) {
 				if (err) {
 					return;

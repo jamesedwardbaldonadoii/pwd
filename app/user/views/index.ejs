@@ -1,26 +1,177 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="/css/master.css">
+    <link rel="stylesheet" type="text/css" href="/css/modal.css">
+    <script type="text/javascript" src="/"></script>
 </head>
 <body>
-    <form action="/api/signin" method="post">
-        <fieldset>
-            <legend>Login:</legend>
-            <div>Email: <input type="email" name="username"></div>
-            <div>Password: <input type="password" name="password"></div>
-            <button type="submit">Login</button>
-        </fieldset>
-    </form>
-    <form action="/api/signup" method="post">
-        <fieldset>
-            <legend>Signup:</legend>
-            <div>Email: <input type="email" name="email"></div>
-            <div>Firstname: <input type="text" name="firstname"></div>
-            <div>Lastname: <input type="text" name="lastname"></div>
-            <div>Password: <input type="password" name="password"></div>
-            <button type="submit">Signup</button>
-        </fieldset>
-    </form>
+    <header>
+      <div class="wrapper">
+        <div class="headlogo">
+          <img src="img/logo.png" alt="Gabay.ph">
+        </div>
+        <h1>GABAY.ph</h1>
+        <nav>
+          <ul>
+            <li> <a class="loginBtn" onclick="myFunction1()">Log-in </a> </li>
+            <li> <a href="#">Contact us </a> </li>
+            <li> <a href="#">Help </a> </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- modal -->
+
+    <div id="modal-wrapper" class="modal1">
+
+        <div class="modal-content animate">
+
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close PopUp">&times;</span>
+                <img src="img/1.png" alt="Avatar" class="avatar">
+            </div>
+
+            <form action="/api/signin" id="login" method="post">
+                <h1>Log-in</h1>
+                <div class="container">
+                    <input type="email" placeholder="Enter Email" name="username">
+                    <input type="password" placeholder="Enter Password" name="password">
+                    <button class="insidemodal" type="submit" name="login">Log-in</button>
+                    <p class="switcher">Don't have an account? <a onclick="switchVisible();">Register.</a></p>
+                    <input type="checkbox" style="margin:20px 0 0 0;"> Remember me
+                    <a href="#" class="forgotpassbtn">Forgot Password?</a>
+                </div>
+
+            </form>
+
+            <form id="signup" action="/api/signup" method="post">
+                <h1>Sign-up</h1>
+                <div class="container">
+                    <div class="formgrid">
+                        <input type="text" class="fnames" placeholder="Enter First Name" name="firstname">
+                        <input type="text" class="lnames" placeholder="Enter Last Name" name="lastname">
+                    </div>
+                    <input type="email" placeholder="Enter Email" name="email">
+                    <input type="password" placeholder="Enter Password" name="password">
+                    <button class="insidemodal" type="submit" name="signup">Create Account</button>
+                    <p class="switcher">Already had an account? <a onclick="switchVisible();">Log-in.</a></p>
+          </div>
+            </form>
+
+        </div>
+
+        </div>
+
+    <!-- banner -->
+
+    <div class="banner">
+      <div class="wrapper">
+        <div class="bannergrid">
+          <div class="bannertxt">
+            <div>
+              <h1>We<br>Care</h1>
+              <a href="#">READ MORE</a>
+            </div>
+          </div>
+          <div class="bannerimg">
+            <img src="img/tigulang.png">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrapper">
+      <div class="aboutgrid">
+        <div class="aboutlogo">
+          <img src="img/logo w txt.png">
+        </div>
+        <div class="abouttxt">
+            <h1>WHAT<br>IS GABAY?</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="section3">
+        <div class="wrapper">
+            <div class="section3cont">
+                <img src="img/sect3bg.png">
+                <p>A creditation platform the compliance of establishments to the accesability law</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <img class="services" src="img/services.png">
+        <div class="section4">
+            <div><img src="img/hex1.png"><p>Inspection</p></div>
+            <div><img src="img/hex2.png"><p>Consultaion</p></div>
+            <div><img src="img/hex3.png"><p>Accreditation</p></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="wrapper">
+            <div class="footergrid">
+                <div class="footforms">
+                    <input type="text" placeholder="Name" name="">
+                    <input type="text" placeholder="Email" name="">
+                    <input type="text" placeholder="Phone Number" name="">
+                    <textarea placeholder="Comment"></textarea>
+                    <button>SUBMIT</button>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
+
+<script>
+
+    function switchVisible() {
+        var div1 = document.getElementById( 'login' );
+        var div2 = document.getElementById( 'signup' );
+
+        if ( div1 ) {
+
+            if ( div1.style.display == 'none' ) {
+                div1.style.display = 'block';
+                div2.style.display = 'none';
+            } else {
+                div1.style.display = 'none';
+                div2.style.display = 'block';
+            }
+        }
+    }
+
+    var modal1 = document.getElementById( 'modal-wrapper' );
+
+    window.onclick = function ( event ) {
+        if ( event.target == modal1 ) {
+            modal1.style.display = "none";
+        }
+        if ( event.target == modal2 ) {
+            modal1.style.display = "none";
+        }
+    }
+
+    function myFunction1() {
+        var x = document.getElementById( "modal-wrapper" );
+        var y1 = document.getElementById( 'login' );
+        var y2 = document.getElementById( 'signup' );
+
+        if ( x.style.display === "block" ) {
+            x.style.display = "none";
+        } else {
+            x.style.display = "block";
+            y1.style.display = "block";
+            y2.style.display = "none";
+        }
+    }
+
+</script>

@@ -33,6 +33,7 @@
 				controller: ['$uibModalInstance', function($uibModalInstance) {
 					var self = this;
 					self.name = '';
+					self.ratings = false;
 					self.criterias = [];
 					self.selected = [];
 
@@ -45,8 +46,31 @@
 							return;
 						}
 
-						$uibModalInstance.close({name: self.name, criterias: _.map(self.selected, '_id')});
+						$uibModalInstance.close({name: self.name, criterias: _.map(self.selected, '_id'), ratings: self.ratings});
 					};
+
+					self.setToRatings = function () {
+						self.ratings = true;
+
+						_.map(self.selected, function(item) {
+							if(item.type !== "checkbox") {
+								self.ratings = false;
+								alert('You can only use checkbox for ratings!');
+								return;
+							}
+
+							self.ratings = true;
+						})
+					};
+
+					self.insertCriteria = function (item, $index) {
+						if (self.ratings && item.type !== 'checkbox') {
+							return;
+						}
+
+						self.selected.push(item);
+						self.criterias.splice($index, 1);
+					}
 
 					self.cancel = function () {
 						$uibModalInstance.dismiss();
