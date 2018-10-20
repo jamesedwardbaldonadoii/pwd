@@ -19,7 +19,6 @@
 				data.options = _.map(data.options, 'text');
 			}
 
-
 			var lastOpt = data.options[data.options.length - 1];
 
 			if (lastOpt === '' || !lastOpt) {

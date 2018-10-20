@@ -15,16 +15,6 @@
 				icon: 'fa fa-home'
 			},
 			{
-				display: 'Users',
-				path: 'users',
-				icon: 'fa fa-user'
-			},
-			{
-				display: 'Reviews',
-				path: 'users',
-				icon: 'fa fa-check'
-			},
-			{
 				display: 'New Criteria',
 				path: 'new_criteria',
 				icon: 'fa fa-plus'
