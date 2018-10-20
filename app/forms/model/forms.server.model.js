@@ -8,6 +8,10 @@ let FormsSchema = new Schema({
     user: {
         type: Schema.ObjectId,
         ref: 'User'
+    },    
+    ratings: {
+        type: Boolean,
+        default: false
     },
     criterias: [{
         type: Schema.ObjectId,

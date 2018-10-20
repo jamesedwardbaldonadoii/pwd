@@ -1,7 +1,18 @@
 <div class="modal-body row" id="modal-body">
 	<div class="col-lg-12">
-		<div ng-repeat="item in $ctrl.answers track by $index">
-			{{item.answer}}
-		</div>
+		<table class="table table-striped">
+			<thead>
+				<td>User</td>
+				<td>Rate</td>
+				<td>Remarks</td>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in $ctrl.answers track by $index" ng-if="item.ratings">
+					<td ng-bind="item.user.fullName"></td>
+					<td ng-bind="item.score"></td>
+					<td ng-bind="item.result"></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </div>

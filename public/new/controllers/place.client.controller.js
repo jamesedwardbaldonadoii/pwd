@@ -94,13 +94,46 @@
       			controllerAs: '$ctrl',
 				controller: ['$uibModalInstance', function($uibModalInstance) {
 					var self = this;
-					self.answers = null;
+					self.answers = [];
 
 					mainSocket.emit('review.find', {query: {place: placeId}}, function (res) {
 						_.map(res, function(item) {
-							console.log(Object.keys(item.answer));
+							var countTrue = 0;
+							var totalCount = 0;
+
+							if (item.ratings) {
+								_.map(item.answer, function(nested){
+									_.map(nested, function (value) {
+										totalCount++
+
+										if (value) {
+											countTrue++;
+										}
+									});
+								});
+							}
+
+
+							item.score = countTrue / totalCount;
+
+							if (item.score < 0.2) {
+								item.result = 'Very Poor';
+							} else if (item.score > 0.2 && item.score < 0.4) {
+								item.result = 'Poor';
+							} else if (item.score > 0.4 && item.score < 0.6) {
+								item.result = 'Good';
+							} else if (item.score > 0.6 && item.score < 0.8) {
+								item.result = 'Very Good';
+							} else if (item.score > 0.6 && item.score < 0.8) {
+								item.result = 'Very Good';
+							} else {
+								item.result = 'Excellent!';
+							}
+
+							item.score = (Math.round(item.score * 100, 2)) + '%';
+
+							self.answers.push(item);
 						});
-						self.answers = res;
 					});
 				}]
 			});

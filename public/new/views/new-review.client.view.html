@@ -23,7 +23,7 @@
         <div ng-if="vm.done">
             <span><i class="fa fa-check"></i> Submitted!</span>
         </div>
-        <form class="form-horizontal" role="form" ng-submit="vm.formSubmit(vm.preview._id)" ng-if="vm.preview">
+        <form class="form-horizontal" role="form" ng-submit="vm.formSubmit(vm.preview._id, vm.preview.forms.ratings)" ng-if="vm.preview">
             <div class="form-group">
                 <label ng-bind="vm.preview.name"></label>
             </div>
