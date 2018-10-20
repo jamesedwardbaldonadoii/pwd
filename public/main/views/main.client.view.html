@@ -1,15 +1,19 @@
-<div class="col-lg-12">
+<div class="col-lg-12" ng-init="main.init()">
 	<table class="table table-striped">
 		<thead>
 			<td>User</td>
+			<td>Place</td>
 			<td>Rate</td>
 			<td>Remarks</td>
+			<td>Date</td>
 		</thead>
 		<tbody>
 			<tr ng-repeat="item in main.answers track by $index" ng-if="item.ratings">
 				<td ng-bind="item.user.fullName"></td>
+				<td ng-bind="item.place.name"></td>
 				<td ng-bind="item.score"></td>
 				<td ng-bind="item.result"></td>
+				<td ng-bind="item.created_date"></td>
 			</tr>
 		</tbody>
 	</table>

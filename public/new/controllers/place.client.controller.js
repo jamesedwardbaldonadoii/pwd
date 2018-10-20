@@ -95,13 +95,19 @@
 				controller: ['$uibModalInstance', function($uibModalInstance) {
 					var self = this;
 					self.answers = [];
+					self.ratings = false;
+					self.questions = [];
+					self.isObj = angular.isObject;
 
 					mainSocket.emit('review.find', {query: {place: placeId}}, function (res) {
 						_.map(res, function(item) {
 							var countTrue = 0;
 							var totalCount = 0;
 
+							self.questions = Object.keys(item.answer);
+
 							if (item.ratings) {
+								self.ratings = true;
 								_.map(item.answer, function(nested){
 									_.map(nested, function (value) {
 										totalCount++
@@ -127,7 +133,7 @@
 							} else if (item.score > 0.6 && item.score < 0.8) {
 								item.result = 'Very Good';
 							} else {
-								item.result = 'Excellent!';
+								item.result = 'Certified';
 							}
 
 							item.score = (Math.round(item.score * 100, 2)) + '%';

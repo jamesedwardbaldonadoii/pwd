@@ -34,6 +34,7 @@ exports.find = {
 			.limit(req.limit)
 			.skip(req.skip)
 			.select(req.select)
+			.populate('place')
 			.populate('user')
 			.exec(function(err, res){
 				if(err)
